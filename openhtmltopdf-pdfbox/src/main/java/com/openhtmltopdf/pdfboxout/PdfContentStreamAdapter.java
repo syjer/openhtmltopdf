@@ -287,6 +287,14 @@ public class PdfContentStreamAdapter {
         }
     }
 
+    public void drawStringWithPositioning(Object[] array) {
+        try {
+            cs.showTextWithPositioning(array);
+        } catch (IOException e) {
+            logAndThrow("drawString", e);
+        }
+    }
+
     public void drawImage(PDImageXObject xobject, float x, float y, float w,
             float h) {
         try {
