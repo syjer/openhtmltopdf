@@ -1155,9 +1155,8 @@ public class VisualRegressionTest {
     }
 
     @Test
-    @Ignore
-    public void testIssue482InfiniteLoopTable() throws IOException {
-        assertTrue(vt.runTest("issue-482-infinite-loop-table", builder -> {
+    public void testIssue482InfiniteLoopInline() throws IOException {
+        assertTrue(vt.runTest("issue-482-infinite-loop-inline", builder -> {
             builder.useFont(() -> VisualRegressionTest.class.getClassLoader().getResourceAsStream("org/apache/pdfbox/resources/ttf/LiberationSans-Regular.ttf"),
                     "Liberation Sans");
         }));
