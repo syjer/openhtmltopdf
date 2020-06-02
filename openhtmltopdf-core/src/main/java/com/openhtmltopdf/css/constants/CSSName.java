@@ -1558,6 +1558,8 @@ public final class CSSName implements Comparable<CSSName> {
              );
 
 
+    public static final CSSName FILL = addProperty("fill", PRIMITIVE, "none", NOT_INHERITED, new PrimitivePropertyBuilders.Color());
+
     /**
      * Unique CSSName instance for CSS2 property.
      */
@@ -1808,6 +1810,7 @@ public final class CSSName implements Comparable<CSSName> {
                     CSSName.BORDER_RIGHT_COLOR,
                     CSSName.BORDER_BOTTOM_COLOR,
                     CSSName.BORDER_LEFT_COLOR);
+
     /**
      * Constructor for the CSSName object
      *
@@ -1910,7 +1913,7 @@ public final class CSSName implements Comparable<CSSName> {
 
     private static synchronized CSSName addProperty(
             String propName,
-            Object type,
+            Integer type,
             String initialValue,
             Object inherit,
             PropertyBuilder builder
@@ -1931,7 +1934,7 @@ public final class CSSName implements Comparable<CSSName> {
      */
     private static synchronized CSSName addProperty(
             String propName,
-            Object type,
+            Integer type,
             String initialValue,
             Object inherit,
             boolean implemented,

@@ -19,6 +19,8 @@
  */
 package com.openhtmltopdf.pdfboxout;
 
+import com.openhtmltopdf.css.constants.CSSName;
+import com.openhtmltopdf.css.style.CalculatedStyle;
 import com.openhtmltopdf.extend.*;
 import com.openhtmltopdf.layout.LayoutContext;
 import com.openhtmltopdf.render.BlockBox;
@@ -58,6 +60,7 @@ public class PdfBoxReplacedElementFactory implements ReplacedElementFactory {
         if (nodeName.equals("math") && _mathmlImpl != null) {
             return new PdfBoxSVGReplacedElement(e, _mathmlImpl, cssWidth, cssHeight, box, c, c.getSharedContext());
         } else if (nodeName.equals("svg") && _svgImpl != null) {
+            String s = c.getSharedContext().getStyle((Element) e.getFirstChild().getNextSibling()).asString(CSSName.FILL);
             return new PdfBoxSVGReplacedElement(e, _svgImpl, cssWidth, cssHeight, box, c, c.getSharedContext());
         } else if (nodeName.equals("img")) {
             String srcAttr = e.getAttribute("src");
