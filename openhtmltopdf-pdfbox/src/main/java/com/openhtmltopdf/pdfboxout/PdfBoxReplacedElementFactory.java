@@ -60,7 +60,9 @@ public class PdfBoxReplacedElementFactory implements ReplacedElementFactory {
         if (nodeName.equals("math") && _mathmlImpl != null) {
             return new PdfBoxSVGReplacedElement(e, _mathmlImpl, cssWidth, cssHeight, box, c, c.getSharedContext());
         } else if (nodeName.equals("svg") && _svgImpl != null) {
-            String s = c.getSharedContext().getStyle((Element) e.getFirstChild().getNextSibling()).asString(CSSName.FILL);
+            Element target = (Element) e.getFirstChild().getNextSibling();
+            String s = c.getSharedContext().getStyle(target).asString(CSSName.FILL);
+            System.err.println("FILL VALUE IS "+ s);
             return new PdfBoxSVGReplacedElement(e, _svgImpl, cssWidth, cssHeight, box, c, c.getSharedContext());
         } else if (nodeName.equals("img")) {
             String srcAttr = e.getAttribute("src");
